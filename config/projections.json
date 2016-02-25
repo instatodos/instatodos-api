@@ -1,0 +1,7 @@
+{
+  "app/assets/javascripts/components/*.es6.jsx": {
+    "command": "jcomponent",
+    "alternate": "spec/javascripts/components/%s_spec.es6.jsx"
+  },
+  "spec/factories/*.rb": { "command": "factory" }
+}
