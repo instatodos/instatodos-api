@@ -1,11 +1,7 @@
 ## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 * Ruby version
+  `ruby 2.3.0`
 
 * System dependencies
 
@@ -22,3 +18,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+#### Cool things to add:
+
+* Implement websockets for data sync
+* Isomorphic JS
+* Explore more rails 5 features
