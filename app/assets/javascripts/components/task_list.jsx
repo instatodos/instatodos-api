@@ -1,7 +1,7 @@
 class TaskList extends React.Component {
   render () {
-    let createItem = ({ title }) => <Task title={title} />
-    return <ul> {this.props.tasks.map(createItem)}</ul>;
+    let createItem = (task) => <Task key={task.id} title={task.title} description={task.description} completed={task.completed} />
+    return <ul> {this.props.tasks.map(createItem)} </ul>;
   }
 }
 
