@@ -1,29 +1,39 @@
 class TaskBox extends React.Component {
   fetchTasks () {
-    const data = [
-      { id: 1, title: 'hola', description: 'desc', completed: true },
-      { id: 2, title: 'hola 2', description: 'desc 2', completed: false }
-    ]
-    this.setState({data: data})
+    let url = '/tasks'
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        this.setState({data: data.tasks});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(url, status, err.toString());
+      }.bind(this)
+    });
   }
 
   handleTaskSubmit(task) {
+    let url = '/tasks'
     let tasks = this.state.data
     task.id = Date.now()
     let newTasks = tasks.concat([task]);
     this.setState({data: newTasks});
-    // $.ajax({
-    //   url: this.props.url,
-    //   dataType: 'json',
-    //   type: 'POST',
-    //   data: comment,
-    //   success: function(data) {
-    //     this.setState({data: data});
-    //   }.bind(this),
-    //   error: function(xhr, status, err) {
-    //     this.setState({data: comments});
-    //     console.error(this.props.url, status, err.toString());
-    //   }.bind(this)
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      type: 'POST',
+      data: {task: task},
+      success: function(data) {
+        let newTasks = tasks.concat([task]);
+        this.setState({data: newTasks});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        this.setState({data: tasks});
+        console.error(url, status, err.toString());
+      }.bind(this)
+    })
   }
 
   constructor (props) {

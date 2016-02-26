@@ -29,6 +29,7 @@ InstantTodo - Instant, persisting, colaborative Todo List. No logins required
 * Explore more rails 5 features
 * use react-bootstrap
 * use mongdb
+* action cable: https://www.npmjs.com/package/action-cable-react
 * this: https://github.com/shakacode/react-webpack-rails-tutorial
 
 #### Inspiration

@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'react-rails', '~> 1.6.1'
 gem 'turbolinks', '~> 5.x'
 gem 'bootstrap-sass', '~> 3.3.6'
+# Use Redis adapter to run Action Cable in production
+# gem 'redis', '~> 3.0'
 
 group :development, :test do
   gem 'pry'

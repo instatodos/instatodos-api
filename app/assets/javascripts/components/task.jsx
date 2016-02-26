@@ -5,15 +5,15 @@ class Task extends React.Component {
 
   render () {
     return (
-      <div>
-        <span>Title: {this.props.title}</span>
+      <li>
+        <span>{this.props.title}</span>
         <input
           type="checkbox"
           checked={this.props.completed}
           onChange={this.onChange}
         />
-      </div>
-    );
+      </li>
+    )
   }
 }
 
