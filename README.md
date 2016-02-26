@@ -25,3 +25,4 @@
 * Implement websockets for data sync
 * Isomorphic JS
 * Explore more rails 5 features
+* this: https://github.com/shakacode/react-webpack-rails-tutorial
