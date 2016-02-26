@@ -7,7 +7,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'active_model_serializers'
 gem 'jquery-rails'
-gem 'react-rails', '~> 1.6.0'
+gem 'react-rails', github: 'reactjs/react-rails', branch: :master
 gem 'turbolinks', '~> 5.x'
 gem 'bootstrap-sass', '~> 3.3.6'
 
@@ -24,7 +24,8 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'quiet_assets'
   gem 'guard-livereload', '~> 2.5', require: false
-  gem "rack-livereload"
+  gem 'rack-livereload'
+  gem 'rubocop'
 end
 
 group :test do
