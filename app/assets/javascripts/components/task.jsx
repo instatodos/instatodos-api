@@ -1,8 +1,4 @@
 class Task extends React.Component {
-  onChange () {
-    alert('checked')
-  }
-
   render () {
     return (
       <li>
@@ -14,6 +10,10 @@ class Task extends React.Component {
         />
       </li>
     )
+  }
+
+  onChange () {
+    alert('checked')
   }
 }
 

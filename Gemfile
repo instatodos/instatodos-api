@@ -9,9 +9,12 @@ gem 'active_model_serializers'
 gem 'jquery-rails'
 gem 'react-rails', '~> 1.6.1'
 gem 'turbolinks', '~> 5.x'
-gem 'bootstrap-sass', '~> 3.3.6'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
+
+# source 'https://rails-assets.org' do
+#   gem 'rails-assets-react-bootstrap-bower'
+# end
 
 group :development, :test do
   gem 'pry'
@@ -22,7 +25,6 @@ end
 
 group :development do
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
   gem 'quiet_assets'
   gem 'guard-livereload', '~> 2.5', require: false
