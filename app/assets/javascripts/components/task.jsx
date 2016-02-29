@@ -6,14 +6,14 @@ class Task extends React.Component {
         <input
           type="checkbox"
           checked={this.props.completed}
-          onChange={this.onChange}
+          onChange={this.handleChangeCompleted.bind(this)}
         />
       </li>
     )
   }
 
-  onChange () {
-    alert('checked')
+  handleChangeCompleted () {
+    alert('Checked!')
   }
 }
 

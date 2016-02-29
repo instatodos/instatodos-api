@@ -24,12 +24,11 @@ InstantTodo - Instant, persisting, colaborative Todo List. No logins required
 
 #### Cool things to add:
 
-* Implement websockets for data sync
+* Implement action cable for data sync - ✓
+* use mongodb
 * Isomorphic JS
-* Explore more rails 5 features
+* Explore more rails 5 features(jobs, etc?)
 * use react-bootstrap
-* use mongdb
-* action cable: https://www.npmjs.com/package/action-cable-react
 * this: https://github.com/shakacode/react-webpack-rails-tutorial
 
 #### Inspiration

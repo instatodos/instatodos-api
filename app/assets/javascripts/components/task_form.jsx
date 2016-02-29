@@ -12,7 +12,7 @@ class TaskForm extends React.Component {
     e.preventDefault()
     let title = this.state.title.trim()
     if (!title) return
-    this.props.onTaskSubmit({title: title})
+    TodoActions.submitTask({title: title})
     this.setState({title: ''})
   }
 

@@ -1,20 +1,21 @@
-source 'https://rubygems.org'
 
+source 'https://rubygems.org'
 gem 'rails', '>= 5.0.0.beta3', '< 5.1'
 gem 'sqlite3'
 gem 'puma'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'active_model_serializers'
-gem 'jquery-rails'
 gem 'react-rails', '~> 1.6.1'
+gem 'sprockets-es6'
+gem 'coffee-rails', '~> 4.1.0' # Needed by action cable
 gem 'turbolinks', '~> 5.x'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.0'
 
-# source 'https://rails-assets.org' do
-#   gem 'rails-assets-react-bootstrap-bower'
-# end
+source 'https://rails-assets.org' do
+  gem 'rails-assets-alt'
+  gem 'rails-assets-axios'
+end
 
 group :development, :test do
   gem 'pry'

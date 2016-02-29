@@ -1,6 +1,10 @@
 class TaskList extends React.Component {
   render () {
-    let taskNodes = this.props.data.map((task) => {
+    if(!this.props.tasks.length){
+      return <img width='50px' src='assets/spinner.gif' />
+    }
+
+    let taskNodes = this.props.tasks.map((task) => {
       return (<Task
         key={task.id}
         title={task.title}
