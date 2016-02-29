@@ -7,7 +7,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'active_model_serializers'
 gem 'jquery-rails'
-gem 'react-rails', github: 'reactjs/react-rails', branch: :master
+gem 'react-rails', '~> 1.6.1'
 gem 'turbolinks', '~> 5.x'
 gem 'bootstrap-sass', '~> 3.3.6'
 
