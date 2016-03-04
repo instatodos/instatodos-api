@@ -18,14 +18,20 @@ class TaskForm extends React.Component {
 
   render () {
     return (
-      <form className="taskForm" onSubmit={this.handleSubmit.bind(this)}>
-        <input
-          type="text"
-          value={this.state.title}
-          onChange={this.handleTitleChange.bind(this)}
-          placeholder="Task title"
-        />
-        <input type="submit" value="✓" />
+      <form onSubmit={this.handleSubmit.bind(this)}>
+        <div className='form-group'>
+          <div className="input-group">
+            <input
+              className="form-control"
+              value={this.state.title}
+              onChange={this.handleTitleChange.bind(this)}
+              placeholder="Task title"
+            />
+            <span className="input-group-btn">
+              <input className='btn btn-primary' type="submit" value="✓" />
+            </span>
+          </div>
+        </div>
       </form>
     )
   }

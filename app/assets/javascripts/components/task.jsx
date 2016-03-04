@@ -1,13 +1,17 @@
 class Task extends React.Component {
   render () {
     return (
-      <li>
-        <span>{this.props.title}</span>
-        <input
-          type="checkbox"
-          checked={this.props.completed}
-          onChange={this.handleChangeCompleted.bind(this)}
-        />
+      <li className='list-group-item task'>
+        <div className="checkbox">
+          <label>
+            <input
+              type="checkbox"
+              checked={this.props.completed}
+              onChange={this.handleChangeCompleted.bind(this)}
+              />
+            {this.props.title}
+          </label>
+        </div>
       </li>
     )
   }

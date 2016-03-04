@@ -43,10 +43,15 @@ GEM
       tzinfo (~> 1.1)
     arel (7.0.0)
     ast (2.2.0)
+    autoprefixer-rails (6.3.3.1)
+      execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.2)
     coderay (1.1.1)
@@ -148,6 +153,9 @@ GEM
       sprockets-rails (>= 2.0.0)
     rails-assets-alt (0.18.2)
     rails-assets-axios (0.9.1)
+    rails-assets-react (0.14.7)
+    rails-assets-react-bootstrap (0.28.3)
+      rails-assets-react (>= 0.14.0)
     rails-controller-testing (0.1.0)
       actionpack (~> 5.x)
       actionview (~> 5.x)
@@ -254,6 +262,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  bootstrap-sass
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails
@@ -266,6 +275,7 @@ DEPENDENCIES
   rails (>= 5.0.0.beta3, < 5.1)
   rails-assets-alt!
   rails-assets-axios!
+  rails-assets-react-bootstrap!
   rails-controller-testing
   react-rails (~> 1.6.1)
   redis (~> 3.0)

@@ -11,10 +11,12 @@ gem 'sprockets-es6'
 gem 'coffee-rails', '~> 4.1.0' # Needed by action cable
 gem 'turbolinks', '~> 5.x'
 gem 'redis', '~> 3.0'
+gem 'bootstrap-sass'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-alt'
   gem 'rails-assets-axios'
+  gem 'rails-assets-react-bootstrap'
 end
 
 group :development, :test do

@@ -1,9 +1,9 @@
 class TaskList extends React.Component {
+
   render () {
     if(!this.props.tasks.length){
       return <img width='50px' src='assets/spinner.gif' />
     }
-
     let taskNodes = this.props.tasks.map((task) => {
       return (<Task
         key={task.id}
@@ -12,7 +12,8 @@ class TaskList extends React.Component {
         completed={task.completed}
       />)
     })
-
-    return <ul className='taskList'> {taskNodes} </ul>
+    return(
+      <ul className='list-group'> {taskNodes} </ul>
+    )
   }
 }

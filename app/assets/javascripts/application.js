@@ -2,6 +2,7 @@
 //= require turbolinks
 //= require react
 //= require react_ujs
+//= require react-bootstrap
 //= require alt
 //= require axios
 //= require_self

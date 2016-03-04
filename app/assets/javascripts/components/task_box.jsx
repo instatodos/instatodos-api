@@ -21,7 +21,14 @@ class TaskBox extends React.Component {
   render () {
     return (
       <div className="taskBox">
-        <h1>Tasks</h1>
+        <h2>Tasks</h2>
+        <div className='text-center'>
+          <div className="btn-group">
+            <button type="button" className="btn btn-default active">Incomplete</button>
+            <button type="button" className="btn btn-default">Completed</button>
+          </div>
+        </div>
+        <br />
         <TaskForm />
         <TaskList tasks={this.state.tasks}/>
       </div>

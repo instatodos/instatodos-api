@@ -18,5 +18,6 @@ module InstaTodo
     config.generators.stylesheets = false
     config.generators.javascripts = false
     config.generators.helper = false
+    config.react.addons = true
   end
 end
