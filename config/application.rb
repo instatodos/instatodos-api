@@ -13,7 +13,7 @@ require "action_cable/engine"
 
 Bundler.require(*Rails.groups)
 
-module Wunderday
+module InstaTodo
   class Application < Rails::Application
     config.generators.stylesheets = false
     config.generators.javascripts = false
