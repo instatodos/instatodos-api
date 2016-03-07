@@ -41,5 +41,4 @@ group :test do
   gem 'shoulda-context'
   gem 'database_cleaner'
   gem 'simplecov', :require => false
-  gem 'rails-controller-testing'
 end

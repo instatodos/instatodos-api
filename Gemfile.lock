@@ -158,10 +158,6 @@ GEM
     rails-assets-react (0.14.7)
     rails-assets-react-bootstrap (0.28.3)
       rails-assets-react (>= 0.14.0)
-    rails-controller-testing (0.1.0)
-      actionpack (~> 5.x)
-      actionview (~> 5.x)
-      activesupport (~> 5.x)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -274,7 +270,6 @@ DEPENDENCIES
   rails-assets-bootswatch!
   rails-assets-react!
   rails-assets-react-bootstrap!
-  rails-controller-testing
   react-rails (~> 1.6.1)
   redis (~> 3.0)
   rspec-rails (~> 3.0)

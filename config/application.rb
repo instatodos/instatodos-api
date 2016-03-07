@@ -16,6 +16,7 @@ Bundler.require(*Rails.groups)
 module InstaTodo
   class Application < Rails::Application
     config.generators.stylesheets = false
+    config.generators.controller_specs false
     config.generators.javascripts = false
     config.generators.helper = false
     config.react.addons = true
