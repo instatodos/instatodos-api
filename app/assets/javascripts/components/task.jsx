@@ -1,23 +1,24 @@
 class Task extends React.Component {
-  render () {
-    return (
-      <li className='list-group-item task'>
-        <div className="checkbox">
-          <label>
-            <input
-              type="checkbox"
-              checked={this.props.completed}
-              onChange={this.handleChangeCompleted.bind(this)}
-              />
-            {this.props.title}
-          </label>
-        </div>
-      </li>
-    )
+  handleCompletedChange(e) {
+    this.setState({title: e.target.value})
   }
 
-  handleChangeCompleted () {
-    alert('Checked!')
+  render () {
+    return (
+      <li className='list-group-item'>
+        <button type="button" className="btn btn-sm btn-danger pull-right">
+          <i className="glyphicon glyphicon-trash"></i>
+        </button>
+        <label>
+          <input
+            type="checkbox"
+            checked={this.props.completed}
+            onChange={this.handleCompletedChange(this)}
+            />
+          {this.props.title}
+        </label>
+      </li>
+    )
   }
 }
 
