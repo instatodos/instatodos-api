@@ -23,7 +23,7 @@ end
 group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '3.5.0.beta1'
   gem 'factory_girl_rails'
 end
 
@@ -40,5 +40,7 @@ group :test do
   gem 'shoulda-matchers', '2.8.0'
   gem 'shoulda-context'
   gem 'database_cleaner'
+  gem 'capybara'
+  gem 'poltergeist'
   gem 'simplecov', :require => false
 end
