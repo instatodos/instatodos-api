@@ -22,11 +22,11 @@ class TaskForm extends React.Component {
 
   render () {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
+      <form className='taskForm' onSubmit={this.handleSubmit.bind(this)}>
         <div className='form-group'>
           <div className="input-group">
-
             <input
+              id='title'
               className="form-control"
               value={this.state.title}
               onChange={this.handleTitleChange.bind(this)}
@@ -34,8 +34,8 @@ class TaskForm extends React.Component {
             />
 
             <span className="input-group-btn">
-              <button type="submit" claspanssName="btn btn-primary">
-                <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              <button type="submit" className="btn btn-primary submitTask">
+                <span className="" aria-hidden="true"></span>
               </button>
             </span>
 

@@ -1,5 +1,6 @@
-@import "bootstrap-sass";
+@import "bootstrap-sprockets";
 @import "bootswatch/paper/variables";
+@import "bootstrap";
 @import "bootswatch/paper/bootswatch";
 
 .list-group-item.task {

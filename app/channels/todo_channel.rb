@@ -8,8 +8,14 @@ class TodoChannel < ApplicationCable::Channel
     stop_all_streams
   end
 
-  def add_task(data)
+  def create_task(data)
     task = Task.create! data['task']
+    ActionCable.server.broadcast 'TodoChannel', task.to_json
+  end
+
+  def destroy_task(data)
+    task = Task.find data['id']
+    task.destroy!
     ActionCable.server.broadcast 'TodoChannel', task.to_json
   end
 end

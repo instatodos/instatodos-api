@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tasks, except: [:new, :edit]
+  resources :tasks, only: [:index]
   mount ActionCable.server => '/cable'
 
   root to: 'tasks#index'

@@ -2,7 +2,7 @@ class TaskList extends React.Component {
 
   render () {
     if(!this.props.tasks.length){
-      return <img width='50px' src='assets/spinner.gif' />
+      return <img className='spinner' width='50px' src='assets/spinner.gif' />
     }
     let taskNodes = this.props.tasks.map((task) => {
       return (<Task

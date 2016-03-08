@@ -5,17 +5,18 @@ class Task extends React.Component {
 
   render () {
     return (
-      <li className='list-group-item'>
-        <button type="button" className="btn btn-sm btn-danger pull-right">
-          <i className="glyphicon glyphicon-trash"></i>
+      <li className='list-group-item form-inline'>
+        <button type="button" className="btn btn-sm btn-danger pull-right deleteTask">
+          <i className=""></i>
         </button>
         <label>
           <input
             type="checkbox"
             checked={this.props.completed}
-            onChange={this.handleCompletedChange(this)}
+            onChange={this.handleCompletedChange.bind(this)}
             />
-          {this.props.title}
+            <input className='form-control input-sm hide' value={this.props.title} />
+            <span>{this.props.title}</span>
         </label>
       </li>
     )

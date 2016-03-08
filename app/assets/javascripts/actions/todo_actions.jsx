@@ -2,13 +2,14 @@
   class TodoActions {
     fetchTasks() {
       return (dispatch) => {
+        dispatch()
         TodoSource.fetchTasks()
-        .then((tasks) => {
-          this.updateTasks(tasks)
-        })
-        .catch((errorMessage) => {
-          this.tasksFailed(errorMessage)
-        })
+          .then((tasks) => {
+            this.updateTasks(tasks)
+          })
+          .catch((errorMessage) => {
+            this.tasksFailed(errorMessage)
+          })
       }
     }
 
@@ -21,7 +22,7 @@
     }
 
     submitTask(task) {
-      App.todo.addTask(task)
+      App.todo.createTask(task)
       return task
     }
   }

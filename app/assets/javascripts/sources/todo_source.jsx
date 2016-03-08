@@ -1,12 +1,12 @@
 const TodoSource = {
-  fetchTasks:  function() {
-    return new Promise( function(resolve, reject) {
+  fetchTasks: () => {
+    return new Promise((resolve, reject) => {
       axios.get( '/tasks.json', {} )
-        .then( function( response ){
-          resolve( response.data.tasks );
+        .then((response) => {
+          resolve( response.data.tasks )
         })
-        .catch( function(response) {
-          reject('Loading Failed.');
+        .catch((response) => {
+          reject('Loading Failed.')
         });
     });
   }

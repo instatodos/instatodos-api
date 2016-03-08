@@ -2,7 +2,7 @@
   class TodoStore {
     constructor () {
       this.tasks = []
-      this.errorMessage = null 
+      this.errorMessage = null
       this.bindListeners({
         handleUpdateTasks: TodoActions.UPDATE_TASKS,
         handleFetchTasks: TodoActions.FETCH_TASKS,

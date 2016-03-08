@@ -1,5 +1,5 @@
-
 source 'https://rubygems.org'
+
 gem 'rails', '>= 5.0.0.beta3', '< 5.1'
 gem 'sqlite3'
 gem 'puma'
@@ -7,17 +7,18 @@ gem 'active_model_serializers'
 gem 'redis', '~> 3.0'
 
 gem 'uglifier', '>= 1.3.0'
-gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.1.0' # Needed by action cable
 gem 'react-rails', '~> 1.6.1'
+gem 'sass', '3.4.21'
+gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass'
+gem 'bootswatch-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-alt'
   gem 'rails-assets-axios'
-  gem 'rails-assets-bootstrap-sass'
   gem 'rails-assets-react', require: false
   gem 'rails-assets-react-bootstrap'
-  gem 'rails-assets-bootswatch'
 end
 
 group :development, :test do
@@ -40,7 +41,7 @@ group :test do
   gem 'shoulda-matchers', '2.8.0'
   gem 'shoulda-context'
   gem 'database_cleaner'
-  gem 'capybara'
+  gem 'capybara', branch: :master
   gem 'poltergeist'
-  gem 'simplecov', :require => false
+  gem 'launchy'
 end

@@ -28,7 +28,8 @@ InstantTodo - Instant, persisting, colaborative Todo List. No logins required
 * use react-bootstrap
 * Isomorphic JS
 * Use activejob to create tasks
-* this: https://github.com/shakacode/react-webpack-rails-tutorial
+* react mobile input
+* use webpack?: https://github.com/shakacode/react-webpack-rails-tutorial
 
 #### Inspiration
 
