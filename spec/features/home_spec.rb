@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-feature 'Todos', js: true do
-  before { visit landing_page_path }
+feature 'Home', js: true do
+  before { visit home_path }
   describe 'Create todo' do
     xit 'creates a new todo list' do
       fill_in 'title', with: 'Title'

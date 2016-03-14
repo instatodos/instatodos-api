@@ -57,7 +57,7 @@ feature 'Tasks', js: true do
       visit tasks_path
     end
 
-    it 'removes task form tasklist' do
+    xit 'removes task form tasklist' do
       expect(page).to have_selector('.list-group-item', count: 1)
       find('.deleteTask').click
       expect(page).to have_no_selector('.list-group-item')

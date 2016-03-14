@@ -23,14 +23,14 @@ end
 
 Capybara.javascript_driver = :poltergeist
 
-Capybara.register_server :puma do |app, port, host|
+Capybara.server {|app, port| 
   require 'puma'
   Puma::Server.new(app).tap do |s|
-    s.add_tcp_listener host, port
+    s.add_tcp_listener Capybara.server_host, port
   end.run.join
-end
+}
 
-Capybara.server = :puma
+# Capybara.server = :puma
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
