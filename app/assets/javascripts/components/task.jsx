@@ -3,6 +3,10 @@ class Task extends React.Component {
     this.setState({title: e.target.value})
   }
 
+  handleTitleChange(e) {
+    this.setState({title: e.target.value})
+  }
+
   render () {
     return (
       <li className='list-group-item form-inline'>
@@ -15,7 +19,11 @@ class Task extends React.Component {
             checked={this.props.completed}
             onChange={this.handleCompletedChange.bind(this)}
             />
-            <input className='form-control input-sm hide' value={this.props.title} />
+            <input
+              className='form-control input-sm hide'
+              value={this.props.title}
+              onChange={this.handleTitleChange.bind(this)}
+              />
             <span>{this.props.title}</span>
         </label>
       </li>
