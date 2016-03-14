@@ -3,9 +3,7 @@
 //= require es5-shim
 //= require es6-shim
 //= require react
-//= require react
 //= require react_ujs
-//= require react-bootstrap
 //= require alt
 //= require axios
 //= require_self

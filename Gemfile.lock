@@ -170,9 +170,6 @@ GEM
       sprockets-rails (>= 2.0.0)
     rails-assets-alt (0.18.2)
     rails-assets-axios (0.9.1)
-    rails-assets-react (0.14.7)
-    rails-assets-react-bootstrap (0.28.3)
-      rails-assets-react (>= 0.14.0)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -284,8 +281,6 @@ DEPENDENCIES
   rails (>= 5.0.0.beta3, < 5.1)
   rails-assets-alt!
   rails-assets-axios!
-  rails-assets-react!
-  rails-assets-react-bootstrap!
   react-rails (~> 1.6.1)
   redis (~> 3.0)
   rspec-rails (= 3.5.0.beta1)

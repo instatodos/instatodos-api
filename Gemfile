@@ -17,8 +17,7 @@ gem 'bootswatch-rails'
 source 'https://rails-assets.org' do
   gem 'rails-assets-alt'
   gem 'rails-assets-axios'
-  gem 'rails-assets-react', require: false
-  gem 'rails-assets-react-bootstrap'
+  # gem 'rails-assets-react-bootstrap'
 end
 
 group :development, :test do
