@@ -7,7 +7,7 @@ class Task extends React.Component {
     return (
       <li className='list-group-item form-inline'>
         <button type="button" className="btn btn-sm btn-danger pull-right deleteTask">
-          <i className=""></i>
+          <i className="glyphicon glyphicon-minus"></i>
         </button>
         <label>
           <input

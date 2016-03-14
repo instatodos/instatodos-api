@@ -35,7 +35,7 @@ class TaskForm extends React.Component {
 
             <span className="input-group-btn">
               <button type="submit" className="btn btn-primary submitTask">
-                <span className="" aria-hidden="true"></span>
+                <i className="glyphicon glyphicon-plus" aria-hidden="true"></i>
               </button>
             </span>
 

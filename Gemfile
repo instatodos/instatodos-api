@@ -23,7 +23,7 @@ end
 group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
-  gem 'rspec-rails', '3.5.0.beta1'
+  gem 'rspec-rails', '3.5.0.beta2'
   gem 'factory_girl_rails'
 end
 
@@ -37,7 +37,7 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '2.8.0'
+  gem 'shoulda-matchers', '~> 3.1.1'
   gem 'shoulda-context'
   gem 'database_cleaner'
   gem 'capybara', branch: :master
