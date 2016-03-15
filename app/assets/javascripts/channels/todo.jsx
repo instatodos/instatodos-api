@@ -13,7 +13,7 @@ App.todo = App.cable.subscriptions.create("TodoChannel", {
   },
 
   createTask(task) {
-    this.perform('create_task', { task: task })
+    this.perform('create_task', { id: id, task: task })
   },
 
   destroyTask(task) {

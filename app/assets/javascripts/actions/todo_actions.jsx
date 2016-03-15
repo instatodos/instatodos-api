@@ -3,7 +3,7 @@
     fetchTasks() {
       return (dispatch) => {
         dispatch()
-        TodoSource.fetchTasks()
+        TodoSource.fetchTasks(1)
           .then((tasks) => {
             this.updateTasks(tasks)
           })

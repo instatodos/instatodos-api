@@ -11,7 +11,6 @@ class TaskBox extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log('unmounting')
     TodoStore.unlisten(this.onChange)
   }
 

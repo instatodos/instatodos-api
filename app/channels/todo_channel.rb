@@ -9,7 +9,8 @@ class TodoChannel < ApplicationCable::Channel
   end
 
   def create_task(data)
-    task = Task.create! data['task']
+    @todo = Todo.find data['id']
+    task = @todo.tasks.create! data['task']
     ActionCable.server.broadcast 'TodoChannel', task.to_json
   end
 
