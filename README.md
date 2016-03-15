@@ -1,39 +1,24 @@
 ## README
 
-InstantTodo - Instant, persisting, colaborative Todo List. No logins required
+InstaTodo - Instant, collaborative Todo List. No logins required.
 
-* Ruby version
-  `ruby 2.3.0`
+### System Dependencies
 
-* System dependencies
+* Ruby version: `ruby 2.3.0`
+* RoR version: `5.0.0-beta3`
+* ReactJS version: `0.14.7`
 
-* Configuration
+### Configuration
 
-* Database creation
+> * Configuration
+> * Database creation
+> * Database initialization
+> * Services (job queues, cache servers, search engines, etc.)
+> * Deployment instructions
+> * How to run the test suite
 
-* Database initialization
+### License
 
-* How to run the test suite
+InstaTodo is released under the MIT license:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-#### Cool things to add:
-
-* Implement action cable for data sync - ✓
-* use react-bootstrap
-* Isomorphic JS
-* Use activejob to create tasks
-* react mobile input
-* use webpack?: https://github.com/shakacode/react-webpack-rails-tutorial
-
-#### Inspiration
-
-* https://appear.in/
-* todomvc.com
-* wunderlist
-
+http://www.opensource.org/licenses/MIT
