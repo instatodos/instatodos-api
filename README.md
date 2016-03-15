@@ -1,14 +1,12 @@
-## README
+# InstaTodo - Instant, collaborative todo lists. No logins required.
 
-InstaTodo - Instant, collaborative Todo List. No logins required.
-
-### System Dependencies
+## System Dependencies
 
 * Ruby version: `ruby 2.3.0`
 * RoR version: `5.0.0-beta3`
 * ReactJS version: `0.14.7`
 
-### Configuration
+## Configuration
 
 > * Configuration
 > * Database creation
@@ -17,7 +15,19 @@ InstaTodo - Instant, collaborative Todo List. No logins required.
 > * Deployment instructions
 > * How to run the test suite
 
-### License
+## Support
+
+Bug reports, feature requests, and any random comments can be filled as
+ [issues](https://github.com/instatodo/instatodo/issues):
+
+* https://github.com/instatodo/instatodo/issues
+
+## Creator
+Sergio Márquez
+  * [github](https://github.com/smarquez1)
+  * [twitter](https://twitter.com/SergioDMarquez)
+
+## License
 
 InstaTodo is released under the MIT license:
 
