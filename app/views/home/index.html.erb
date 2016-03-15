@@ -5,14 +5,13 @@
 <br>
 <br>
 
-<form>
+<%= form_for @todo do |f| %>
   <div class='form-group'>
     <div class="input-group">
-      <input id='title' class='form-control' value='localhost/todos/'> </input>
+      <%= f.text_field :title, class: 'form-control' %>
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary createTodo">
-          Create
-        </button>
+        <%= f.submit 'Create', class: "btn btn-primary createTodo" %>
       </span>
     </div>
-  </form>
+<% end %>
+
