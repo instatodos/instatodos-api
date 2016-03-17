@@ -1,9 +1,9 @@
 (() => {
   class TodoActions {
-    fetchTasks() {
+    fetchTasks(id) {
       return (dispatch) => {
         dispatch()
-        TodoSource.fetchTasks(1)
+        TodoSource.fetchTasks(id)
           .then((tasks) => {
             this.updateTasks(tasks)
           })

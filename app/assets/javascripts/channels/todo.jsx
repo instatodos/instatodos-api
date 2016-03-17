@@ -1,10 +1,7 @@
 App.todo = App.cable.subscriptions.create("TodoChannel", {
   connected() {
-    console.log("Connected...")
-  },
-
-  disconnected() {
-    console.log("Disconnected...")
+    let todoId = document.getElementById('todo_id').value
+    this.perform('follow', { todo_id: todoId })
   },
 
   received(data) {

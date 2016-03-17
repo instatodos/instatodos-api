@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 feature 'Todos', js: true do
-  let(:task) { build(:task) }
+  let(:todo) { create(:todo) }
+  before { visit todo_path(todo) }
 
   describe 'Tasklist' do
     context 'without tasks' do
-      before { visit todos_path }
-      xit 'Shows a spinner' do
+      it 'Shows a spinner' do
         expect(page).to have_content('Tasks')
         expect(page).to have_no_selector('.list-group-item')
-        expect(page).to have_selector('.spinner')
+        expect(page).to have_selector('.glyphicon-spin')
       end
 
       context 'with tasks' do

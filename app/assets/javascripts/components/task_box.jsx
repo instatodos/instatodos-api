@@ -6,8 +6,9 @@ class TaskBox extends React.Component {
   }
 
   componentWillMount () {
+    let todoId = parseInt(this.props.todo_id)
     TodoStore.listen(this.onChange)
-    TodoActions.fetchTasks()
+    TodoActions.fetchTasks(todoId)
   }
 
   componentWillUnmount() {
@@ -19,16 +20,8 @@ class TaskBox extends React.Component {
   }
 
   render () {
-    // var cx = React.addons.classSet;
-    // var classes = cx({
-    //   "message": true,
-    //   "warning": this.props.warningLevel === "3",
-    //   "critical": this.props.warningLevel === "5"
-    // });
-
     return (
       <div className="taskBox">
-        <h2>Tasks</h2>
         <div className='text-center'>
           <div className="btn-group">
             <button type="button" className="btn btn-default active"> Incomplete </button>

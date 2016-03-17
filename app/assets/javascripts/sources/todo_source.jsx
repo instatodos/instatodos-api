@@ -1,7 +1,7 @@
 const TodoSource = {
-  fetchTasks: () => {
+  fetchTasks: (id) => {
     return new Promise((resolve, reject) => {
-      axios.get( '/todos/1.json', {} )
+      axios.get( '/todos/' + id + '.json', {} )
         .then((response) => {
           resolve( response.data.tasks )
         })

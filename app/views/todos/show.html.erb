@@ -1,2 +1,3 @@
-Todo: <%= @todo.title %>
-<%= react_component 'TaskBox' %>
+<h2> Todo: <%= @todo.title %> </h2>
+<%= hidden_field_tag :todo_id, @todo.id %>
+<%= react_component 'TaskBox', { todo_id: "#{@todo.id}" } %>

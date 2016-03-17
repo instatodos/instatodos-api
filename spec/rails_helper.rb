@@ -1,5 +1,5 @@
-require 'spec_helper'
 ENV["RAILS_ENV"] ||= 'test'
+require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
@@ -16,14 +16,14 @@ Capybara.register_driver :poltergeist do |app|
     app,
     js_errors: true,
     timeout: 30,
-    inspector: true,
+    inspector: false,
     debug: false
   )
 end
 
 Capybara.javascript_driver = :poltergeist
 
-Capybara.server {|app, port| 
+Capybara.server { |app, port|
   require 'puma'
   Puma::Server.new(app).tap do |s|
     s.add_tcp_listener Capybara.server_host, port
