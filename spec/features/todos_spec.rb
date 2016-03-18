@@ -2,26 +2,23 @@ require 'rails_helper'
 
 feature 'Todos', js: true do
   let(:todo) { create(:todo) }
-  before { visit todo_path(todo) }
+  let(:todo_with_tasks) { create(:todo_with_tasks) }
 
   describe 'Tasklist' do
     context 'without tasks' do
+      before { visit todo_path(todo) }
       it 'Shows a spinner' do
-        expect(page).to have_content('Tasks')
+        expect(page).to have_content("Todo: #{todo.title}")
         expect(page).to have_no_selector('.list-group-item')
         expect(page).to have_selector('.glyphicon-spin')
       end
 
       context 'with tasks' do
-        before do
-          allow(Task).to receive(:all).and_return ([task])
-          visit todos_path
-        end
-
-        xit 'Shows tasklist' do
-          expect(page).to have_content('Tasks')
+        before { visit todo_path(todo_with_tasks) }
+        it 'Shows tasklist' do
+          expect(page).to have_content("Todo: #{todo_with_tasks.title}")
           expect(page).to have_no_selector('.spinner')
-          expect(page).to have_selector('.list-group-item', count: 1)
+          expect(page).to have_selector('.list-group-item', count: 3)
         end
       end
     end
@@ -29,18 +26,19 @@ feature 'Todos', js: true do
 
   describe 'Submit task' do
     before do
-      visit todos_path
+      visit todo_path(todo)
       fill_in 'title', with: 'task title'
       find('.submitTask').click
     end
-    xit 'creates a task in the db' do
+
+    it 'creates a task in the db' do
       expect(page).to have_selector('.list-group-item', count: 1)
     end
   end
 
   describe 'Change task title' do
     before do
-      visit todos_path
+      visit todo_path(todo)
       # click task title
       # modify name
       # click outside task
@@ -54,7 +52,7 @@ feature 'Todos', js: true do
   describe 'Remove task' do
     before do
       allow(Task).to receive(:all).and_return ([task])
-      visit todos_path
+      visit todo_path(todo)
     end
 
     xit 'removes task form tasklist' do

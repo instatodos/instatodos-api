@@ -1,7 +1,8 @@
 class TaskForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {title: ''}
+    let todoId = document.getElementById('todo_id').value
+    this.state = { title: '', todo_id: todoId }
   }
 
   handleTitleChange(e) {
@@ -15,8 +16,10 @@ class TaskForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     let title = this.state.title.trim()
+    let todo_id = this.state.todo_id
+    let task = { title: title, todo_id: todo_id }
     if (!title) return
-    TodoActions.submitTask({title: title})
+    TodoActions.submitTask(task)
     this.setState({title: ''})
   }
 
