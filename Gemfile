@@ -10,6 +10,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5.x'
 gem 'coffee-rails', '~> 4.1.0' # Needed by action cable
 gem 'react-rails', '~> 1.6.1'
+gem 'classnames-rails'
 gem 'sass', '3.4.21'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'

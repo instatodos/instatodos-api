@@ -4,6 +4,7 @@
 //= require lodash
 //= require react
 //= require react_ujs
+//= require classnames
 //= require alt
 //= require axios
 //= require_self

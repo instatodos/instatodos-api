@@ -64,6 +64,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    classnames-rails (2.1.5)
     cliver (0.3.2)
     coderay (1.1.1)
     coffee-rails (4.1.1)
@@ -275,6 +276,7 @@ DEPENDENCIES
   bootstrap-sass
   bootswatch-rails
   capybara
+  classnames-rails
   coffee-rails (~> 4.1.0)
   database_cleaner
   factory_girl_rails
