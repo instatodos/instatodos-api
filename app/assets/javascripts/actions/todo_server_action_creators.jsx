@@ -1,8 +1,13 @@
 (() => {
   class TodoServerActionCreators {
-    receiveTask(task) {
+    receiveCreatedTask(task) {
+      return( task )
+    }
+
+    receiveDeletedTask(task) {
       return( task )
     }
   }
+
   this.TodoServerActionCreators = alt.createActions(TodoServerActionCreators)
 })();

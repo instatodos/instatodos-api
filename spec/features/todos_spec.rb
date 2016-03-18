@@ -33,6 +33,7 @@ feature 'Todos', js: true do
 
     it 'creates a task in the db' do
       expect(page).to have_selector('.list-group-item', count: 1)
+      expect(Task.count).to be(1)
     end
   end
 
@@ -51,14 +52,13 @@ feature 'Todos', js: true do
 
   describe 'Remove task' do
     before do
-      allow(Task).to receive(:all).and_return ([task])
-      visit todo_path(todo)
+      visit todo_path(todo_with_tasks)
     end
 
-    xit 'removes task form tasklist' do
-      expect(page).to have_selector('.list-group-item', count: 1)
-      find('.deleteTask').click
-      expect(page).to have_no_selector('.list-group-item')
+    it 'removes task form tasklist' do
+      first('.deleteTask').click
+      expect(page).to have_selector('.list-group-item', count: 2)
+      expect(Task.count).to be(2)
     end
   end
 end

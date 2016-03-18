@@ -10,14 +10,20 @@ class TodoChannel < ApplicationCable::Channel
     stop_all_streams
   end
 
-  def create_task(task)
-    task = Task.create! task['task']
-    ActionCable.server.broadcast "todo_channel_#{task.todo_id}", task.to_json
+  def create_task(data)
+    task = Task.create!(data['task'])
+    ActionCable.server.broadcast(
+      "todo_channel_#{task.todo_id}",
+      task: task.to_json, action: :create_task
+    )
   end
 
-  def destroy_task(task)
-    task = Task.find data['id']
+  def destroy_task(data)
+    task = Task.find(data['id'])
     task.destroy!
-    ActionCable.server.broadcast "todo_channel_#{task.todo_id}", task.to_json
+    ActionCable.server.broadcast(
+      "todo_channel_#{task.todo_id}",
+      task: task.to_json, action: :destroy_task
+    )
   end
 end

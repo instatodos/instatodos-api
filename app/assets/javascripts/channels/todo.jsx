@@ -5,15 +5,22 @@ App.todo = App.cable.subscriptions.create("TodoChannel", {
   },
 
   received(data) {
-    let task = JSON.parse(data)
-    TodoServerActionCreators.receiveTask(task)
+    let task = JSON.parse(data['task'])
+    switch (data['action']) {
+      case 'create_task':
+        TodoServerActionCreators.receiveCreatedTask(task)
+        break;
+      case 'destroy_task':
+        TodoServerActionCreators.receiveDeletedTask(task)
+        break;
+    }
   },
 
   createTask(task) {
     this.perform('create_task', { task: task })
   },
 
-  destroyTask(task) {
-    this.perform('destroy_task', { task: task })
+  destroyTask(id) {
+    this.perform('destroy_task', { id: id })
   }
 })

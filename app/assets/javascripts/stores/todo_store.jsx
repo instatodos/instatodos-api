@@ -7,7 +7,8 @@
         handleUpdateTasks: TodoActions.UPDATE_TASKS,
         handleFetchTasks: TodoActions.FETCH_TASKS,
         handleTasksFailed: TodoActions.TASKS_FAILED,
-        handleReceiveTask: TodoServerActionCreators.RECEIVE_TASK
+        handleReceiveCreatedTask: TodoServerActionCreators.RECEIVE_CREATED_TASK,
+        handleReceiveDeletedTask: TodoServerActionCreators.RECEIVE_DELETED_TASK
       })
     }
 
@@ -24,8 +25,13 @@
       this.errorMessage = errorMessage
     }
 
-    handleReceiveTask(task) {
+    handleReceiveCreatedTask(task) {
       this.tasks.unshift(task)
+    }
+
+    handleReceiveDeletedTask(task) {
+      arr = _.reject(this.tasks, function(t){ return t.id == task.id })
+      this.tasks = arr
     }
   }
 

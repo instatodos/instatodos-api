@@ -25,6 +25,12 @@
       App.todo.createTask(task)
       return task
     }
+
+    destroyTask(id) {
+      App.todo.destroyTask(id)
+      return id
+    }
+
   }
   this.TodoActions = alt.createActions(TodoActions)
 })()

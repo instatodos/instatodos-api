@@ -34,6 +34,7 @@ class TaskForm extends React.Component {
               value={this.state.title}
               onChange={this.handleTitleChange.bind(this)}
               placeholder="Task title"
+              autoComplete="off"
             />
 
             <span className="input-group-btn">

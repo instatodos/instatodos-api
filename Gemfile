@@ -14,6 +14,7 @@ gem 'sass', '3.4.21'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
+gem 'lodash-rails'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-alt'
