@@ -7,6 +7,7 @@ gem 'active_model_serializers'
 gem 'redis', '~> 3.0'
 
 gem 'uglifier', '>= 1.3.0'
+gem 'turbolinks', '~> 5.x'
 gem 'coffee-rails', '~> 4.1.0' # Needed by action cable
 gem 'react-rails', '~> 1.6.1'
 gem 'sass', '3.4.21'
