@@ -32,27 +32,34 @@ class Task extends React.Component {
 
   render () {
     return (
-      <li className='list-group-item form-inline'>
-        <input
-          type="checkbox"
-          checked={this.props.task.completed}
-          onChange={this.handleCompletedChange} />
-        <span
-          className={ classNames({ hide: this.state.editing }) }
-          onClick={this.handleTitleClick.bind(this)}>
-          {this.props.task.title} </span>
-        <input
-          className={
-            classNames('form-control input-sm', { hide: !this.state.editing }) }
+      <li className='list-group-item row no-gutter'>
+        <div className='col-xs-1'>
+          <input
+            type="checkbox"
+            checked={this.props.task.completed}
+            onChange={this.handleCompletedChange} />
+        </div>
+
+        <div className='col-xs-10'>
+          <span
+            className={classNames('task-title', { hide: this.state.editing }) }
+            onClick={this.handleTitleClick.bind(this)}>
+            {this.props.task.title} </span>
+          <input
+            className={
+              classNames('form-control input-sm', { hide: !this.state.editing }) }
             value={this.state.editingTitle}
             onChange={this.handleTitleChange.bind(this)}
             onBlur={this.handleTitleBlur.bind(this)}
-            ref={(input) => { if (input != null) input.focus()} }
-            />
-        <button type="button"
-          className="btn btn-sm btn-danger pull-right deleteTask"
-          onClick={this.handleDelete.bind(this)} >
-          <i className="glyphicon glyphicon-minus"></i> </button>
+            ref={(input) => { if (input != null) input.focus()} } />
+        </div>
+
+        <div className='col-xs-1'>
+          <button
+            className="btn btn-sm btn-danger pull-right delete-task"
+            onClick={this.handleDelete.bind(this)} >
+            <i className="glyphicon glyphicon-minus"></i> </button>
+        </div>
       </li>
     )
   }

@@ -9,8 +9,17 @@ class TaskList extends React.Component {
       return (<Task key={task.id} task={task} />)
     })
 
+    var ReactTransitionGroup = React.addons.CSSTransitionGroup;
+
     return(
-      <ul className='list-group'> {taskNodes} </ul>
+      <ReactTransitionGroup
+        component="ul"
+        className="list-group"
+        transitionName= "example"
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}>
+          {taskNodes}
+      </ReactTransitionGroup>
     )
   }
 }

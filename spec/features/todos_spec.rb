@@ -40,11 +40,12 @@ feature 'Todos', js: true do
   describe 'Change task title' do
     before do
       visit todo_path(todo)
-      # click task title
-      # modify name
-      # click outside task
+      first('.task-title').click
+      fill_in '.edit-task', with: 'task title'
+      page.find("body").click
     end
-    xit 'modifies task title' do
+
+    it 'modifies task title' do
       # expect it to have the new name
       # expect it to have the new name (db check? console.log?)
     end
@@ -53,10 +54,10 @@ feature 'Todos', js: true do
   describe 'Remove task' do
     before do
       visit todo_path(todo_with_tasks)
+      first('.delete-task').click
     end
 
     it 'removes task form tasklist' do
-      first('.deleteTask').click
       expect(page).to have_selector('.list-group-item', count: 2)
       expect(Task.count).to be(2)
     end
