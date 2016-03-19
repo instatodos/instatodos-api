@@ -1,11 +1,15 @@
 (() => {
   class TodoServerActionCreators {
     receiveCreatedTask(task) {
-      return( task )
+      return(task)
+    }
+
+    receiveUpdatedTask(task) {
+      return(task)
     }
 
     receiveDeletedTask(task) {
-      return( task )
+      return(task)
     }
   }
 

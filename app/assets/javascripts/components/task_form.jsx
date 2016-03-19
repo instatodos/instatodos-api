@@ -19,7 +19,7 @@ class TaskForm extends React.Component {
     let todo_id = this.state.todo_id
     let task = { title: title, todo_id: todo_id }
     if (!title) return
-    TodoActions.submitTask(task)
+    TodoActions.createTask(task)
     this.setState({title: ''})
   }
 

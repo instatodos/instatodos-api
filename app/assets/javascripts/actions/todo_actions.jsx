@@ -21,13 +21,18 @@
       return errorMessage
     }
 
-    submitTask(task) {
-      App.todo.createTask(task)
+    createTask(task) {
+      App.todoChannel.createTask(task)
+      return task
+    }
+
+    updateTask(task) {
+      App.todoChannel.updateTask(task)
       return task
     }
 
     destroyTask(id) {
-      App.todo.destroyTask(id)
+      App.todoChannel.destroyTask(id)
       return id
     }
 

@@ -18,12 +18,27 @@ class TodoChannel < ApplicationCable::Channel
     )
   end
 
+  def update_task(data)
+    task = find_task(data['task']['id'])
+    task.update(data['task'])
+    ActionCable.server.broadcast(
+      "todo_channel_#{task.todo_id}",
+      task: task.to_json, action: :update_task
+    )
+  end
+
   def destroy_task(data)
-    task = Task.find(data['id'])
+    task = find_task(data['id'])
     task.destroy!
     ActionCable.server.broadcast(
       "todo_channel_#{task.todo_id}",
       task: task.to_json, action: :destroy_task
     )
+  end
+
+  private
+
+  def find_task(id)
+    Task.find(id)
   end
 end

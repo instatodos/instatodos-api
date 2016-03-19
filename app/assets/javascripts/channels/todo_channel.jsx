@@ -1,7 +1,19 @@
-App.todo = App.cable.subscriptions.create("TodoChannel", {
+App.todoChannel = App.cable.subscriptions.create("TodoChannel", {
   connected() {
     let todoId = document.getElementById('todo_id').value
     this.perform('follow', { todo_id: todoId })
+  },
+
+  createTask(task) {
+    this.perform('create_task', { task: task })
+  },
+
+  updateTask(task) {
+    this.perform('update_task', { task: task })
+  },
+
+  destroyTask(id) {
+    this.perform('destroy_task', { id: id })
   },
 
   received(data) {
@@ -10,17 +22,12 @@ App.todo = App.cable.subscriptions.create("TodoChannel", {
       case 'create_task':
         TodoServerActionCreators.receiveCreatedTask(task)
         break;
+      case 'update_task':
+        TodoServerActionCreators.receiveUpdatedTask(task)
+        break;
       case 'destroy_task':
         TodoServerActionCreators.receiveDeletedTask(task)
         break;
     }
-  },
-
-  createTask(task) {
-    this.perform('create_task', { task: task })
-  },
-
-  destroyTask(id) {
-    this.perform('destroy_task', { id: id })
   }
 })

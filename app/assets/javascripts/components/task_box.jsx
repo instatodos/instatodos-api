@@ -24,7 +24,8 @@ class TaskBox extends React.Component {
       <div className="taskBox">
         <div className='text-center'>
           <div className="btn-group">
-            <button type="button" className="btn btn-default active"> Incomplete </button>
+            <button type="button" className="btn btn-default active"> All </button>
+            <button type="button" className="btn btn-default"> Incomplete </button>
             <button type="button" className="btn btn-default"> Completed </button>
           </div>
         </div>
