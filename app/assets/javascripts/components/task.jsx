@@ -16,6 +16,7 @@ class Task extends React.Component {
     this.setState({editingTitle: e.target.value})
     let title = this.state.editingTitle.trim()
     if (title) {
+
       let task = { id: this.props.task.id, title: title }
       TodoActions.updateTask(task)
     }
@@ -32,7 +33,7 @@ class Task extends React.Component {
 
   render () {
     return (
-      <li className='list-group-item row no-gutter'>
+      <li className='task list-group-item row no-gutter'>
         <div className='col-xs-1'>
           <input
             type="checkbox"
@@ -46,8 +47,8 @@ class Task extends React.Component {
             onClick={this.handleTitleClick.bind(this)}>
             {this.props.task.title} </span>
           <input
-            className={
-              classNames('form-control input-sm', { hide: !this.state.editing }) }
+            className={ classNames('edit-task form-control input-sm',
+                         { hide: !this.state.editing }) }
             value={this.state.editingTitle}
             onChange={this.handleTitleChange.bind(this)}
             onBlur={this.handleTitleBlur.bind(this)}

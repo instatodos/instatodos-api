@@ -24,7 +24,7 @@ feature 'Todos', js: true do
     end
   end
 
-  describe 'Submit task' do
+  describe 'Create task' do
     before do
       visit todo_path(todo)
       fill_in 'title', with: 'task title'
@@ -37,17 +37,29 @@ feature 'Todos', js: true do
     end
   end
 
-  describe 'Change task title' do
+  describe 'Update task completed state' do
     before do
-      visit todo_path(todo)
-      first('.task-title').click
-      fill_in '.edit-task', with: 'task title'
-      page.find("body").click
+      visit todo_path(todo_with_tasks)
     end
 
-    it 'modifies task title' do
-      # expect it to have the new name
-      # expect it to have the new name (db check? console.log?)
+    xit 'modifies task state' do end
+  end
+
+  describe 'Update task title' do
+    let(:new_task_title) { 'task title' }
+
+    before do
+      visit todo_path(todo_with_tasks)
+    end
+
+    xit 'modifies task title' do
+      within first('.task') do
+        find('.task-title').click
+        expect(page).to have_selector('.edit-task', visible: true)
+        find('.edit-task').set new_task_title
+        expect(page).to have_selector('.task-title', visible: true )
+      end
+      expect(Task.find_by_title(new_task_title)).to exist
     end
   end
 
