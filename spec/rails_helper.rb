@@ -4,21 +4,31 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
+require 'capybara/webkit'
 require 'shoulda/matchers'
 require 'database_cleaner'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
-
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(
-    app,
+  options = {
     js_errors: true,
-    timeout: 30,
     inspector: false,
-    debug: false
-  )
+    debug: false,
+    phantomjs_options: [
+      '--proxy-type=none',
+      '--load-images=no',
+      '--ignore-ssl-errors=yes',
+      '--ssl-protocol=any',
+      '--web-security=false'
+    ]
+  }
+  Capybara::Poltergeist::Driver.new app, options
+end
+
+Capybara::Webkit.configure do |config|
+  config.allow_unknown_urls
 end
 
 Capybara.javascript_driver = :poltergeist

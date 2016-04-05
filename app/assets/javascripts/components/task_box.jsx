@@ -13,8 +13,8 @@ class TaskBox extends React.Component {
 
   componentWillUnmount() {
     TodoStore.unlisten(this.onChange)
-  }
 
+  }
   onChange(state) {
     this.setState(state)
   }
@@ -24,13 +24,13 @@ class TaskBox extends React.Component {
       <div className="taskBox">
         <div className='text-center'>
           <div className="btn-group">
-            <button type="button" className="btn btn-default active"> All </button>
-            <button type="button" className="btn btn-default"> Incomplete </button>
-            <button type="button" className="btn btn-default"> Completed </button>
+            <button className="btn btn-default active"> All </button>
+            <button className="btn btn-default"> Incomplete </button>
+            <button className="btn btn-default"> Completed </button>
           </div>
         </div>
-        <br />
-        <TaskForm />
+        <br/>
+        <TaskForm/>
         <TaskList tasks={this.state.tasks}/>
       </div>
     )

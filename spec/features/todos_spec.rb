@@ -7,6 +7,7 @@ feature 'Todos', js: true do
   describe 'Tasklist' do
     context 'without tasks' do
       before { visit todo_path(todo) }
+
       it 'Shows a spinner' do
         expect(page).to have_content("Todo: #{todo.title}")
         expect(page).to have_no_selector('.list-group-item')
@@ -15,6 +16,7 @@ feature 'Todos', js: true do
 
       context 'with tasks' do
         before { visit todo_path(todo_with_tasks) }
+
         it 'Shows tasklist' do
           expect(page).to have_content("Todo: #{todo_with_tasks.title}")
           expect(page).to have_no_selector('.spinner')
@@ -38,39 +40,46 @@ feature 'Todos', js: true do
   end
 
   describe 'Update task completed state' do
-    before do
-      visit todo_path(todo_with_tasks)
-    end
+    before { visit todo_path(todo_with_tasks) }
 
-    xit 'modifies task state' do end
+    xit 'modifies task state' do
+      within first('.task') do
+        find('.task-completed').click
+        sleep 1
+        expect(page).to have_checked_field('.task-completed')
+      end
+      expect(Task.where(completed: true)).not_to be_nil
+    end
   end
 
   describe 'Update task title' do
-    let(:new_task_title) { 'task title' }
+    before { visit todo_path(todo_with_tasks) }
 
-    before do
-      visit todo_path(todo_with_tasks)
-    end
+    let(:new_task_title) { 'task title' }
 
     xit 'modifies task title' do
       within first('.task') do
         find('.task-title').click
-        expect(page).to have_selector('.edit-task', visible: true)
-        find('.edit-task').set new_task_title
-        expect(page).to have_selector('.task-title', visible: true )
+        expect(page).to have_selector('.task-title-edit', visible: true)
+        expect(page).to have_selector('.task-title', visible: false )
+        find('.task-title-edit').set new_task_title
+        expect(page).to have_selector('.task-title-edit', visible: false)
+        expect(page).to have_selector('.task-title', visible: true, text: new_task_title)
       end
-      expect(Task.find_by_title(new_task_title)).to exist
+      sleep 1
+      expect(Task.find_by_title(new_task_title)).not_to be_nil
     end
   end
 
   describe 'Remove task' do
     before do
-      visit todo_path(todo_with_tasks)
+      visit todo_path todo_with_tasks
       first('.delete-task').click
     end
 
     it 'removes task form tasklist' do
       expect(page).to have_selector('.list-group-item', count: 2)
+      # sleep 1
       expect(Task.count).to be(2)
     end
   end

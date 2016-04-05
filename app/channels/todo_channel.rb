@@ -20,7 +20,7 @@ class TodoChannel < ApplicationCable::Channel
 
   def update_task(data)
     task = find_task(data['task']['id'])
-    task.update(data['task'])
+    task.update_columns data['task']
     ActionCable.server.broadcast(
       "todo_channel_#{task.todo_id}",
       task: task.to_json, action: :update_task
