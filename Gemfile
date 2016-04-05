@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '>= 5.0.0.beta3', '< 5.1'
-gem 'sqlite3'
+gem 'pg'
 gem 'puma'
 gem 'active_model_serializers'
 gem 'redis', '~> 3.0'
@@ -26,7 +26,7 @@ end
 group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
-  gem 'rspec-rails', '3.5.0.beta2'
+  gem 'rspec-rails', '3.5.0.beta3'
   gem 'factory_girl_rails'
   gem 'faker'
 end
