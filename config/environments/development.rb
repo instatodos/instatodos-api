@@ -58,4 +58,6 @@ Rails.application.configure do
   #
   # Automatically inject JavaScript needed for LiveReload
   config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload, live_reload_port: 5729)
+
+  config.action_cable.disable_request_forgery_protection = true
 end
