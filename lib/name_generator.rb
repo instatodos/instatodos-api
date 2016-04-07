@@ -6,11 +6,11 @@ module NameGenerator
   end
 
   def self.adjective
-    load_words('adjectives').sample
+    load_words(:adjectives).sample
   end
 
   def self.noun
-    load_words('nouns').sample
+    load_words(:nouns).sample
   end
 
   def self.name

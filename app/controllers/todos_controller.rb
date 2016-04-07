@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
   # GET /todos/:id
   def show
-    @todo = Todo.find params[:id]
+    @todo = Todo.friendly.find params[:id]
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @todo.as_json(include: :tasks) }
@@ -13,7 +13,8 @@ class TodosController < ApplicationController
     @todo = Todo.create todo_params
 
     if @todo.save
-      redirect_to @todo, notice: "Todo list: #{@todo.id} created!"
+      redirect_to "/#{@todo.title}",
+        notice: "Todo list: #{@todo.title} created!"
     else
       redirect_to :back, error: "An error has ocurred, todo list not created"
     end

@@ -5,6 +5,7 @@ gem 'pg'
 gem 'puma'
 gem 'active_model_serializers'
 gem 'redis', '~> 3.0'
+gem 'friendly_id'
 
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5.x'

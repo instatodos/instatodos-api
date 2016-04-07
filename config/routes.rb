@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   get '/:id', to: 'todos#show'
 
+  get ':id' => 'todos#show'
   root to: 'home#index'
 end

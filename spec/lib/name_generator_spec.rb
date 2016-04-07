@@ -5,8 +5,8 @@ describe NameGenerator do
   let(:adjective) { NameGenerator.adjective }
   let(:noun) { NameGenerator.noun }
   let(:name) { NameGenerator.name }
-  let(:noun_list) { NameGenerator.load_words('nouns') }
-  let(:adjective_list) { NameGenerator.load_words('adjectives') }
+  let(:noun_list) { NameGenerator.load_words(:nouns) }
+  let(:adjective_list) { NameGenerator.load_words(:adjectives) }
 
   it 'picks a random adjective from the list' do
     expect(adjective_list).to include(adjective)
