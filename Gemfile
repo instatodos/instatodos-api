@@ -41,6 +41,8 @@ group :development do
   gem 'rack-livereload'
   gem 'rubocop'
   gem 'rubocop-rspec'
+  gem 'mina'
+  gem 'mina-puma', :require => false
 end
 
 group :test do

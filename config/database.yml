@@ -15,5 +15,5 @@ test:
 production:
   <<: *default
   database: insta_todo_production
-  username: username
-  password: password1
+  username: <%= Rails.application.secrets[:database][:username] %>
+  password: <%= Rails.application.secrets[:database][:password] %>
