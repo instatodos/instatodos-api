@@ -43,6 +43,7 @@ group :development do
   gem 'rubocop-rspec'
   gem 'mina'
   gem 'mina-puma', :require => false
+  gem 'mina-nginx', :require => false
 end
 
 group :test do

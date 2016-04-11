@@ -3,6 +3,7 @@ require 'mina/rails'
 require 'mina/git'
 require 'mina/chruby'
 require 'mina/puma'
+require 'mina/nginx'
 
 set :user, 'insta'
 set :domain, '198.211.105.120'
