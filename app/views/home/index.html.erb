@@ -8,7 +8,7 @@
     <%= form_for @todo do |f| %>
       <div class='form-group'>
         <div class="input-group">
-          <%= f.text_field :title, class: 'form-control', disabled: true %>
+          <%= f.text_field :title, class: 'form-control' %>
           <span class="input-group-btn">
             <%= f.submit 'Create', class: "btn btn-primary createTodo" %>
           </span>
