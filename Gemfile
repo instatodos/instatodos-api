@@ -39,8 +39,6 @@ group :development do
   gem 'quiet_assets'
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'rack-livereload'
-  gem 'rubocop'
-  gem 'rubocop-rspec'
   gem 'mina'
   gem 'mina-puma', :require => false
   gem 'mina-nginx', :require => false
