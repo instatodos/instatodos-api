@@ -1,0 +1,11 @@
+scss:
+  enabled: true
+
+ruby:
+  enabled: true
+
+javascript:
+  enabled: true
+
+eslint:
+  enabled: true
