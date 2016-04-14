@@ -1,12 +1,12 @@
-ENV["RAILS_ENV"] ||= 'test'
-require 'spec_helper'
+ENV["RAILS_ENV"] ||= "test"
+require "spec_helper"
 require File.expand_path("../../config/environment", __FILE__)
-require 'rspec/rails'
-require 'capybara/rspec'
-require 'capybara/poltergeist'
-require 'capybara/webkit'
-require 'shoulda/matchers'
-require 'database_cleaner'
+require "rspec/rails"
+require "capybara/rspec"
+require "capybara/poltergeist"
+require "capybara/webkit"
+require "shoulda/matchers"
+require "database_cleaner"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -17,28 +17,26 @@ Capybara.register_driver :poltergeist do |app|
     inspector: false,
     debug: false,
     phantomjs_options: [
-      '--proxy-type=none',
-      '--load-images=no',
-      '--ignore-ssl-errors=yes',
-      '--ssl-protocol=any',
-      '--web-security=false'
+      "--proxy-type=none",
+      "--load-images=no",
+      "--ignore-ssl-errors=yes",
+      "--ssl-protocol=any",
+      "--web-security=false"
     ]
   }
   Capybara::Poltergeist::Driver.new app, options
 end
 
-Capybara::Webkit.configure do |config|
-  config.allow_unknown_urls
-end
+Capybara::Webkit.configure(&:allow_unknown_urls)
 
 Capybara.javascript_driver = :poltergeist
 
-Capybara.server { |app, port|
-  require 'puma'
+Capybara.server do |app, port|
+  require "puma"
   Puma::Server.new(app).tap do |s|
     s.add_tcp_listener Capybara.server_host, port
   end.run.join
-}
+end
 
 # Capybara.server = :puma
 
@@ -58,8 +56,10 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :feature) do
-    driver_shares_db_connection_with_specs = Capybara.current_driver == :rack_test
-    if !driver_shares_db_connection_with_specs
+    driver_shares_db_connection_with_specs =
+      Capybara.current_driver == :rack_test
+
+    unless driver_shares_db_connection_with_specs
       DatabaseCleaner.strategy = :truncation
     end
   end

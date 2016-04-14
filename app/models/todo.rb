@@ -4,5 +4,5 @@ class Todo < ApplicationRecord
 
   has_many :tasks
 
-  validates :title, format: { with: /\w+-\w+-\d{3}/, message: 'not allowed' }
+  validates :title, format: { with: /\w+-\w+-\d{3}/, message: "not allowed" }
 end

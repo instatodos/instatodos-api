@@ -1,4 +1,5 @@
-# Be sure to restart your server when you modify this file. Action Cable runs in a loop that does not support auto reloading.
+# Be sure to restart your server when you modify this file.
+# Action Cable runs in a loop that does not support auto reloading.
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_todo
@@ -8,6 +9,7 @@ module ApplicationCable
     end
 
     protected
+
     def find_current_todo
       Todo.last
       # if current_todo = Todo.find_by(id: cookies.signed[:user_id])

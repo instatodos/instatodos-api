@@ -14,7 +14,7 @@ class TodosController < ApplicationController
 
     if @todo.save
       redirect_to "/#{@todo.title}",
-        notice: "Todo list: #{@todo.title} created!"
+                  notice: "Todo list: #{@todo.title} created!"
     else
       redirect_to :back, error: "An error has ocurred, todo list not created"
     end

@@ -1,4 +1,4 @@
-require 'name_generator'
+require "name_generator"
 
 class HomeController < ApplicationController
   # GET /home
