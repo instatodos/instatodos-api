@@ -1,11 +1,8 @@
 language: ruby
 env:
-  - DB=postgresql
-  - RAILS_ENV=test
-  - SPEC_OPTS="--format p"
+  - DB=postgres SPEC_OPTS="--format p"
 script:
   - bundle exec rake db:test:prepare
   - bundle exec rspec spec/
 before_script:
   - psql -c 'create database insta_todo_test' -U postgres
-bundler_args: --binstubs=./bundler_stubs
