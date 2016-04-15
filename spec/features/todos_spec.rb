@@ -34,6 +34,7 @@ feature "Todos", js: true do
     end
 
     it "creates a task in the db" do
+      expect(current_path).to eq todo_path(todo)
       expect(page).to have_selector(".list-group-item", count: 1)
       expect(Task.count).to be(1)
     end
