@@ -7,12 +7,12 @@ feature "Home" do
     let(:todo) { Todo.last }
 
     before do
-      fill_in :todo_title, with: "Title"
+      fill_in :todo_title, with: NameGenerator.name
       click_button "Create"
     end
 
     it "redirects to the new todo list" do
-      expect(page.current_path).to eq todo_path(todo)
+      expect(page.current_path).to eq "/#{todo.title}"
     end
   end
 end
