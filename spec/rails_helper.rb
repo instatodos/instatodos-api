@@ -3,7 +3,6 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 require "capybara/rspec"
 require "capybara/poltergeist"
-require "capybara/webkit"
 require "shoulda/matchers"
 require "database_cleaner"
 
@@ -26,16 +25,9 @@ Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new app, options
 end
 
-Capybara::Webkit.configure(&:allow_unknown_urls)
-
 Capybara.javascript_driver = :poltergeist
 
-Capybara.server do |app, port|
-  require "puma"
-  Puma::Server.new(app).tap do |s|
-    s.add_tcp_listener Capybara.server_host, port
-  end.run.join
-end
+Capybara.server = :puma
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

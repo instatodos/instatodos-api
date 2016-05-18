@@ -1,4 +1,5 @@
 require "rails_helper"
+require "name_generator"
 
 feature "Todos", js: true do
   let(:todo) { create(:todo) }
@@ -43,7 +44,7 @@ feature "Todos", js: true do
   describe "Update task completed state" do
     before { visit todo_path(todo_with_tasks) }
 
-    xit "modifies task state" do
+    it "modifies task state" do
       within first(".task") do
         find(".task-completed").click
         sleep 1
@@ -58,15 +59,17 @@ feature "Todos", js: true do
 
     let(:new_task_title) { "task title" }
 
-    xit "modifies task title" do
+    it "modifies task title" do
       within first(".task") do
         find(".task-title").click
         expect(page).to have_selector(".task-title-edit", visible: true)
         expect(page).to have_selector(".task-title", visible: false)
+        sleep 1
         find(".task-title-edit").set new_task_title
         expect(page).to have_selector(".task-title-edit", visible: false)
         expect(page).to have_selector(
-          ".task-title", visible: true, text: new_task_title)
+          ".task-title", visible: true, text: new_task_title
+        )
       end
       sleep 1
       expect(Task.find_by_title(new_task_title)).not_to be_nil
@@ -81,7 +84,6 @@ feature "Todos", js: true do
 
     it "removes task form tasklist" do
       expect(page).to have_selector(".list-group-item", count: 2)
-      # sleep 1
       expect(Task.count).to be(2)
     end
   end

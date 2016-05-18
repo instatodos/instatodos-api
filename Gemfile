@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", ">= 5.0.0.beta3", "< 5.1"
+gem "rails", ">= 5.0.0.rc1", "< 5.1"
 gem "pg"
 gem "puma"
 gem "active_model_serializers"
@@ -11,7 +11,7 @@ gem "uglifier", ">= 1.3.0"
 gem "turbolinks", "~> 5.x"
 gem "jquery-rails"
 gem "coffee-rails", "~> 4.1.0" # Needed by action cable
-gem "react-rails", "~> 1.6.1"
+gem "react-rails", "~> 1.7"
 gem "classnames-rails"
 gem "sass", "3.4.21"
 gem "sass-rails", "~> 5.0"
@@ -48,8 +48,8 @@ group :test do
   gem "shoulda-matchers", "~> 3.1.1"
   gem "shoulda-context"
   gem "database_cleaner"
-  gem "capybara", branch: :master
+  gem "capybara"
   gem "poltergeist"
-  gem "capybara-webkit"
   gem "launchy"
 end
+

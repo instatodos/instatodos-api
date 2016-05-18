@@ -37,7 +37,7 @@
     }
 
     handleReceiveDeletedTask(task) {
-      arr = _.reject(this.tasks, function(t){ return t.id == task.id })
+      arr = _.reject(this.tasks, function(t) { return t.id == task.id })
       this.tasks = arr
     }
   }
