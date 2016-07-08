@@ -1,7 +1,6 @@
 module NameGenerator
   def self.load_words(item)
     file = File.expand_path("../name_generator/#{item}.txt", __FILE__)
-    puts file
     File.read(file).split("\n")
   end
 

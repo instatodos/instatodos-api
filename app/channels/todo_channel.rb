@@ -1,5 +1,6 @@
 # Be sure to restart your server when you modify this file.
 # Action Cable runs in a loop that does not support auto reloading.
+
 class TodoChannel < ApplicationCable::Channel
   def follow(data)
     stop_all_streams

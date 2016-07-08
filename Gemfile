@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", ">= 5.0.0.rc1", "< 5.1"
+gem "rails", "5.0.0"
 gem "pg"
 gem "puma"
 gem "active_model_serializers"
@@ -10,11 +10,10 @@ gem "friendly_id"
 gem "uglifier", ">= 1.3.0"
 gem "turbolinks", "~> 5.x"
 gem "jquery-rails"
-gem "coffee-rails", "~> 4.1.0" # Needed by action cable
-gem "react-rails", "~> 1.7"
+gem "react-rails", "~> 1.8"
 gem "classnames-rails"
-gem "sass", "3.4.21"
-gem "sass-rails", "~> 5.0"
+gem "sass"
+gem "sass-rails"
 gem "bootstrap-sass"
 gem "bootswatch-rails"
 gem "lodash-rails"
@@ -28,7 +27,7 @@ end
 group :development, :test do
   gem "pry"
   gem "pry-byebug"
-  gem "rspec-rails", "3.5.0.beta3"
+  gem "rspec-rails", "3.5.0"
   gem "factory_girl_rails"
   gem "faker"
 end
@@ -36,7 +35,6 @@ end
 group :development do
   gem "spring"
   gem "spring-commands-rspec"
-  gem "quiet_assets"
   gem "guard-livereload", "~> 2.5", require: false
   gem "rack-livereload"
   gem "mina"
