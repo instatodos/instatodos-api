@@ -9,6 +9,7 @@ require "database_cleaner"
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
+
 Capybara.register_driver :poltergeist do |app|
   options = {
     js_errors: true,
@@ -37,6 +38,8 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
+
+  config.filter_run_when_matching :focus
 
   config.include FactoryGirl::Syntax::Methods
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

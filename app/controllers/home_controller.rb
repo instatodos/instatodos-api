@@ -3,7 +3,7 @@ require "name_generator"
 class HomeController < ApplicationController
   # GET /home
   def index
-    title = NameGenerator.name
+    title = NameGenerator.instance.name
     @todo = Todo.new title: title
 
     respond_to do |format|

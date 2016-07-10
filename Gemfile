@@ -27,7 +27,7 @@ end
 group :development, :test do
   gem "pry"
   gem "pry-byebug"
-  gem "rspec-rails", "3.5.0"
+  gem "rspec-rails", "3.5.1"
   gem "factory_girl_rails"
   gem "faker"
 end

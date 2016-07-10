@@ -7,7 +7,7 @@ feature "Home" do
     let(:todo) { Todo.last }
 
     before do
-      fill_in :todo_title, with: NameGenerator.name
+      fill_in :todo_title, with: 'testy-test-123'
       click_button "Create"
     end
 
