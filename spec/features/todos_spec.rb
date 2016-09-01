@@ -59,17 +59,13 @@ feature "Todos", js: true do
 
     it "modifies task title" do
       within first(".task") do
-        find(".task-title").click
-        expect(page).to have_selector(".edit-task", visible: true)
-        expect(page).to have_selector(".task-title", visible: false)
-        find(".edit-task").set new_task_title
-        expect(page).to have_selector(".edit-task", visible: false)
-        expect(page).to have_selector( ".task-title", visible: true)
-        # expect(page).to have_selector(
-        #   ".task-title", visible: true, text: new_task_title)
+        expect(page).to have_selector(".display-task")
+        first(".task-title").click
+        expect(page).not_to have_selector(".display-task")
+        first(".task-title").set new_task_title
+        expect(page).to have_selector( ".display-task", text: new_task_title)
       end
-      # sleep 1
-      # expect(Task.find_by_title(new_task_title)).not_to be_nil
+      expect(Task.find_by_title(new_task_title)).not_to be_nil
     end
   end
 

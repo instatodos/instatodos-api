@@ -1,7 +1,7 @@
 class Task extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { editing: false, editingTitle: this.props.task.title }
+    this.state = {editing: false}
   }
 
   handleTitleClick(e) {
@@ -13,8 +13,7 @@ class Task extends React.Component {
   }
 
   handleTitleChange(e) {
-    this.setState({editingTitle: e.target.value})
-    let title = this.state.editingTitle.trim()
+    let title = e.target.value.trim()
     if (title) {
       let task = { id: this.props.task.id, title: title }
       TodoActions.updateTask(task)
@@ -42,18 +41,18 @@ class Task extends React.Component {
         </div>
 
         <div className='col-xs-10'>
-          <span
-            className={classNames('task-title', { hide: this.state.editing }) }
-            onClick={this.handleTitleClick.bind(this)}>
-            {this.props.task.title} </span>
           <input
-            className={ classNames('edit-task form-control input-sm',
-              { hide: !this.state.editing }) }
-            id='edit-task'
-            value={this.state.editingTitle}
+            className={
+              classNames(
+                'form-control input-sm task-title', { 'display-task': !this.state.editing }
+              )
+            }
+            id='task'
+            value={this.props.task.title}
             onChange={this.handleTitleChange.bind(this)}
+            onClick={this.handleTitleClick.bind(this)}
             onBlur={this.handleTitleBlur.bind(this)}
-            ref={(input) => { if (input != null) input.focus()} } />
+          />
         </div>
 
         <div className='col-xs-1'>
