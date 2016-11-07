@@ -1,24 +1,23 @@
-require File.expand_path('../boot', __FILE__)
+require_relative 'boot'
 
 require "rails"
 
 require "active_model/railtie"
+require "active_job/railtie"
 require "active_record/railtie"
 require "action_controller/railtie"
+require "action_mailer/railtie"
 require "action_view/railtie"
-require "sprockets/railtie"
 require "action_cable/engine"
-# require "active_job/railtie"
-# require "action_mailer/railtie"
+# require "sprockets/railtie"
+# require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
 
 module InstaTodo
   class Application < Rails::Application
-    config.generators.stylesheets = false
+    config.api_only = true
+
     config.generators.controller_specs false
-    config.generators.javascripts = false
-    config.generators.helper = false
-    config.react.addons = true
   end
 end

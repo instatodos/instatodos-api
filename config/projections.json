@@ -1,15 +1,3 @@
 {
-  "app/assets/javascripts/components/*.jsx": {
-    "command": "jcomponent",
-    "alternate": "spec/javascripts/components/%s_spec.jsx"
-  },
-  "app/assets/javascripts/actions/*.jsx": {
-    "command": "jaction",
-    "alternate": "spec/javascripts/actions/%s_spec.jsx"
-  },
-  "app/assets/javascripts/stores/*.jsx": {
-    "command": "jstore",
-    "alternate": "spec/javascripts/stores/%s_spec.jsx"
-  },
   "spec/factories/*.rb": { "command": "factory" }
 }

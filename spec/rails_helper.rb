@@ -1,34 +1,12 @@
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
-require "capybara/rspec"
-require "capybara/poltergeist"
 require "shoulda/matchers"
 require "database_cleaner"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
-
-Capybara.register_driver :poltergeist do |app|
-  options = {
-    js_errors: true,
-    inspector: false,
-    debug: false,
-    phantomjs_options: [
-      "--proxy-type=none",
-      "--load-images=no",
-      "--ignore-ssl-errors=yes",
-      "--ssl-protocol=any",
-      "--web-security=false"
-    ]
-  }
-  Capybara::Poltergeist::Driver.new app, options
-end
-
-Capybara.javascript_driver = :poltergeist
-
-Capybara.server = :puma
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -48,28 +26,14 @@ RSpec.configure do |config|
   config.backtrace_exclusion_patterns << %r{/gems/}
 
   config.before(:suite) do
-    DatabaseCleaner.clean_with :truncation
-  end
-
-  config.before(:each) do
     DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
   end
 
-  config.before(:each, type: :feature) do
-    driver_shares_db_connection_with_specs =
-      Capybara.current_driver == :rack_test
-
-    unless driver_shares_db_connection_with_specs
-      DatabaseCleaner.strategy = :truncation
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
     end
-  end
-
-  config.before(:each) do
-    DatabaseCleaner.start
-  end
-
-  config.append_after(:each) do
-    DatabaseCleaner.clean
   end
 end
 
