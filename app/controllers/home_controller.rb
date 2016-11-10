@@ -6,6 +6,6 @@ class HomeController < ApplicationController
     title = NameGenerator.instance.name
     @todo = Todo.new title: title
 
-    render json: @todo
+    render json: { todo: @todo }
   end
 end
