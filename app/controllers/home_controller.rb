@@ -6,8 +6,6 @@ class HomeController < ApplicationController
     title = NameGenerator.instance.name
     @todo = Todo.new title: title
 
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    render json: @todo
   end
 end

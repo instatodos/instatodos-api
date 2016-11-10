@@ -2,10 +2,7 @@ class TodosController < ApplicationController
   # GET /todos/:id
   def show
     @todo = Todo.friendly.find params[:id]
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @todo.as_json(include: :tasks) }
-    end
+    render json: @todo.as_json(include: :tasks)
   end
 
   # POST /todos
