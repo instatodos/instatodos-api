@@ -40,7 +40,8 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
 
   # Raises error for missing translations
-   config.action_view.raise_on_missing_translations = true
-   #
+  config.action_view.raise_on_missing_translations = true
+
+  # Disable protection and allow requests from any origin
   config.action_cable.disable_request_forgery_protection = true
 end

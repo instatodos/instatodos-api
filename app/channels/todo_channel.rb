@@ -4,7 +4,8 @@
 class TodoChannel < ApplicationCable::Channel
   def follow(data)
     stop_all_streams
-    current_todo_id = data["todo_id"]
+    # current_todo_id = data["todo_id"]
+    current_todo_id = 1
     stream_from "todo_channel_#{current_todo_id}"
   end
 
