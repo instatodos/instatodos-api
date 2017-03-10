@@ -1,8 +1,4 @@
 class Todo < ApplicationRecord
-  include FriendlyId
-  friendly_id :title
-
-  has_many :tasks
-
-  validates :title, format: { with: /\w+-\w+-\d{3}/, message: "not allowed" }
+  default_scope { order(created_at: :desc) }
+  belongs_to :todo_list
 end

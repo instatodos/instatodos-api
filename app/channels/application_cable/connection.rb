@@ -5,13 +5,13 @@ module ApplicationCable
     identified_by :current_todo
 
     def connect
-      self.current_todo = find_current_todo
+      # self.current_todo = find_current_todo
     end
 
     protected
 
     def find_current_todo
-      Todo.last
+      # Todo.last
       # if current_todo = Todo.find_by(id: cookies.signed[:user_id])
       #   current_todo
       # else
