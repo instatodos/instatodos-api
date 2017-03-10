@@ -8,7 +8,7 @@ require 'mina/nginx'
 set :user, 'insta'
 set :domain, '198.211.105.120'
 set :deploy_to, '/home/insta/instatodos'
-set :repository, 'git@github.com:instatodo/instatodo.git'
+set :repository, 'git@github.com:instatodo/instatodos-api.git'
 set :branch, 'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.

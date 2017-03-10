@@ -13,7 +13,7 @@ require "action_cable/engine"
 
 Bundler.require(*Rails.groups)
 
-module InstaTodo
+module InstaTodos
   class Application < Rails::Application
     config.api_only = true
 

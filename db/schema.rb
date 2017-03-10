@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,23 +15,21 @@ ActiveRecord::Schema.define(version: 20160407142425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "tasks", force: :cascade do |t|
-    t.string   "title"
-    t.string   "description"
-    t.boolean  "completed"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "todo_id"
-  end
-
-  add_index "tasks", ["todo_id"], name: "index_tasks_on_todo_id", using: :btree
-
-  create_table "todos", force: :cascade do |t|
+  create_table "todo_lists", force: :cascade do |t|
     t.string   "title",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_todo_lists_on_title", unique: true, using: :btree
   end
 
-  add_index "todos", ["title"], name: "index_todos_on_title", unique: true, using: :btree
+  create_table "todos", force: :cascade do |t|
+    t.string   "title",                        null: false
+    t.string   "description"
+    t.boolean  "completed",    default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "todo_list_id"
+    t.index ["todo_list_id"], name: "index_todos_on_todo_list_id", using: :btree
+  end
 
 end

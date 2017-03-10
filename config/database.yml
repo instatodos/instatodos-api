@@ -6,8 +6,8 @@ default: &default
 
 development:
   <<: *default
-  database: insta_todo_development
+  database: insta_todos_development
 
 test:
   <<: *default
-  database: insta_todo_test
+  database: insta_todos_test
