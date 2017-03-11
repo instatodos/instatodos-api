@@ -1,7 +1,8 @@
 class TodoListsController < ApplicationController
   def show
-    @todo_lst = TodoList.friendly.find params[:id]
-    render json: @todo_list.as_json(include: :todos)
+    # @todo_list = TodoList.friendly.find params[:id]
+    @todo_list = TodoList.first
+    render json: @todo_list, include: [ :todos ]
   end
 
   def create

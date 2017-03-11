@@ -20,5 +20,10 @@ module InstaTodos
       g.orm :active_record, primary_key_type: :uuid
       g.controller_specs false
     end
+
+    config.action_dispatch.default_headers.merge!({
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => '*'
+    })
   end
 end
