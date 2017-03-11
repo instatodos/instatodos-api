@@ -10,26 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407142425) do
+ActiveRecord::Schema.define(version: 2) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pgcrypto"
 
-  create_table "todo_lists", force: :cascade do |t|
-    t.string   "title",      null: false
+  create_table "todo_lists", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["title"], name: "index_todo_lists_on_title", unique: true, using: :btree
+    t.index ["title"], name: "index_todo_lists_on_title", unique: true
   end
 
-  create_table "todos", force: :cascade do |t|
-    t.string   "title",                        null: false
-    t.string   "description"
-    t.boolean  "completed",    default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.integer  "todo_list_id"
-    t.index ["todo_list_id"], name: "index_todos_on_todo_list_id", using: :btree
+  create_table "todos", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "todo_list_id"
+    t.string "title", null: false
+    t.string "description"
+    t.boolean "completed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["todo_list_id"], name: "index_todos_on_todo_list_id"
   end
 
 end

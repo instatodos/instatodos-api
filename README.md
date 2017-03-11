@@ -4,8 +4,8 @@
 
 ### System Dependencies
 
-* Ruby version: `ruby 2.3.0`
-* RoR version: `5.0.0`
+* Ruby version: `ruby 2.4.0`
+* RoR version: `5.1.0`
 
 ### Support
 
