@@ -9,8 +9,9 @@ gem "friendly_id"
 
 group :development, :test do
   gem "pry"
+  gem "pry-nav"
   gem "pry-byebug"
-  gem "rspec-rails", "3.5.2"
+  gem "rspec-rails", "~> 3.5.2"
   gem "factory_girl_rails"
   gem "faker"
 end
