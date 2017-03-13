@@ -3,8 +3,9 @@ source "https://rubygems.org"
 gem "rails", "5.1.0.beta1"
 gem "puma"
 gem "pg"
-gem "active_model_serializers"
 gem "redis", "~> 3.0"
+gem 'rack-cors', require: 'rack/cors'
+gem "active_model_serializers"
 gem "friendly_id"
 
 group :development, :test do
