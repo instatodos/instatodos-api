@@ -13,10 +13,8 @@ class TodoChannel < ApplicationCable::Channel
   end
 
   def update(data)
-    puts "PERSIST: " + data.to_s
-    persist = data['persist']
     todo_params = data['todo_params']
-    todo = assign_or_update(todo_params, persist)
+    todo = assign_or_update(todo_params)
     ActionCable.server.broadcast @channel_id, todo: todo, action: :update
   end
 
@@ -31,12 +29,13 @@ class TodoChannel < ApplicationCable::Channel
     Todo.find id
   end
 
-  def assign_or_update(todo_params, persist)
+  def assign_or_update(todo_params)
     id = todo_params['id']
-    find(id).tap do |t|
+    persist = todo_params['user_editing']
+    todo = find(id).tap do |t|
       update_method = persist ? :update_attributes : :assign_attributes
       t.send update_method, todo_params
-      t.to_json
     end
+    TodoSerializer.new(todo).serializable_hash.as_json
   end
 end

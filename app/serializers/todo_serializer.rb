@@ -1,6 +1,6 @@
 class TodoSerializer < ActiveModel::Serializer
   cache key: 'todo'
 
-  attributes :id, :title, :description, :completed
+  attributes :id, :title, :completed, :user_editing
   belongs_to :todo_list
 end
