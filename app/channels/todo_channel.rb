@@ -4,22 +4,32 @@ class TodoChannel < ApplicationCable::Channel
     @todos      ||= @todo_list.todos
     @channel_id ||= "todo_channel_#{@todo_list.id}"
     stream_from @channel_id
-    ActionCable.server.broadcast @channel_id, todos: @todos, action: :follow
+
+    response_params = {
+      todos: @todos,
+      connections: ActionCable.server.connections.length,
+      action: :index
+    }
+
+    ActionCable.server.broadcast @channel_id, response_params
   end
 
   def create(data)
     todo = @todos.create(data['todo_params']).to_json
+
     ActionCable.server.broadcast @channel_id, todo: todo, action: :create
   end
 
   def update(data)
     todo_params = data['todo_params']
     todo = assign_or_update(todo_params)
+
     ActionCable.server.broadcast @channel_id, todo: todo, action: :update
   end
 
   def delete(data)
     todo = find(data['id']).tap { |t| t.destroy!.to_json }
+
     ActionCable.server.broadcast @channel_id, todo: todo, action: :delete
   end
 
