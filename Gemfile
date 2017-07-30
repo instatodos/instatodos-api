@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "rails", "5.1.1"
+gem 'bootsnap', require: false
 gem "puma"
 gem "pg"
 gem "redis", "~> 3.0"
