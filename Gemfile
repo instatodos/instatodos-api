@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem "rails", "5.1.0.rc1"
+gem "rails", "5.1.1"
 gem "puma"
 gem "pg"
 gem "redis", "~> 3.0"
@@ -12,7 +12,7 @@ group :development, :test do
   gem "pry"
   gem "pry-nav"
   gem "pry-byebug"
-  gem "rspec-rails", "~> 3.5.2"
+  gem "rspec-rails", "~> 3.6.0"
   gem "factory_girl_rails"
   gem "faker"
 end
