@@ -13,8 +13,8 @@ module ApplicationCable
 
     def find_current_todo_list
       TodoList.first
-      # if current_todo = Todo.find_by(id: cookies.signed[:user_id])
-      #   current_todo
+      # if current_todo_list = TodoList.find params[:todo_list_id]
+      #   current_todo_list
       # else
       #   reject_unauthorized_connection
       # end
