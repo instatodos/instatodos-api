@@ -6,6 +6,7 @@ module ApplicationCable
 
     def connect
       self.current_todo_list = find_current_todo_list
+      logger.add_tags 'ActionCable', current_todo_list.title
     end
 
     protected
