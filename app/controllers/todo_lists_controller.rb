@@ -1,6 +1,5 @@
 class TodoListsController < ApplicationController
   def show
-    # @todo_list = TodoList.friendly.find params[:id]
     @todo_list = TodoList.first
     render json: @todo_list, include: [ :todos ]
   end

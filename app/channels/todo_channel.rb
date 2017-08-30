@@ -2,14 +2,6 @@ class TodoChannel < ApplicationCable::Channel
   def subscribed
     stop_all_streams
     stream_from channel_id
-
-    response_params = {
-      todos: serialize_resource(current_todo_list.todos),
-      connections: ActionCable.server.connections.length,
-      action: :index
-    }
-
-    ActionCable.server.broadcast channel_id, response_params
   end
 
   def create(data)
