@@ -1,5 +1,6 @@
 # Be sure to restart your server when you modify this file.
 # Action Cable runs in a loop that does not support auto reloading.
+
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
     identified_by :current_todo_list
@@ -12,12 +13,8 @@ module ApplicationCable
     protected
 
     def find_current_todo_list
-      TodoList.first
-      # if current_todo_list = TodoList.find params[:todo_list_id]
-      #   current_todo_list
-      # else
-      #   reject_unauthorized_connection
-      # end
+      # TodoList.find params[:todo_list_id]
+      TodoList.first || reject_unauthorized_connection
     end
   end
 end

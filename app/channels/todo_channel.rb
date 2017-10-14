@@ -1,31 +1,24 @@
 class TodoChannel < ApplicationCable::Channel
   def subscribed
-    stop_all_streams
-    stream_from channel_id
+    stream_from current_todo_list
   end
 
-  def create(data)
-    todo = current_todo_list.todos.create! data['todo_params']
-
-    ActionCable.server.broadcast channel_id, todo: serialize_resource(todo), action: :create
+  def create(params)
+    todo = current_todo_list.todos.create! params['todo_params']
+    response = { todo: serialize(todo), action: :create }
+    ActionCable.server.broadcast current_todo_list, response
   end
 
-  def update(data)
-    todo = Todo.find data['todo_params']['id']
-    todo.assign_or_update data['todo_params']
-
-    ActionCable.server.broadcast channel_id, todo: serialize_resource(todo), action: :update
+  def update(params)
+    todo = Todo.find(params['todo_params']['id'])
+    todo.assign_or_update params['todo_params']
+    response = { todo: serialize(todo), action: :update }
+    ActionCable.server.broadcast current_todo_list, response
   end
 
-  def delete(data)
-    todo = Todo.find(data['id']).destroy!
-
-    ActionCable.server.broadcast channel_id, todo: serialize_resource(todo), action: :delete
-  end
-
-  private
-
-  def channel_id
-    "todo_channel_#{current_todo_list.id}"
+  def delete(params)
+    todo = Todo.find(params['id']).destroy!
+    response = { todo: serialize(todo), action: :delete }
+    ActionCable.server.broadcast current_todo_list, response
   end
 end

@@ -1,6 +1,9 @@
-require "name_generator"
+require 'name_generator'
 
 class HomeController < ApplicationController
+  def index
+    @x TodoL
+  end 
   # GET /home
   def index
     title = NameGenerator.instance.name
