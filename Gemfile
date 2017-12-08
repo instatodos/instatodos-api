@@ -14,12 +14,11 @@ group :development, :test do
   gem 'pry'
   gem 'pry-nav'
   gem 'pry-byebug'
-  gem 'rspec-rails', '~> 3.6.0'
-  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.7.0'
+  gem 'factory_bot_rails'
   gem 'faker'
 
   # code analysis
-  gem 'snip_snip',  github: 'kddeisz/snip_snip'
   gem 'bullet',     require: false
   gem 'brakeman',   require: false
   gem 'rubocop',    require: false
@@ -38,6 +37,7 @@ group :development do
 end
 
 group :test do
+  gem 'action-cable-testing'
   gem 'shoulda-matchers', '~> 3.1.1'
   gem 'shoulda-context'
   gem 'database_cleaner'

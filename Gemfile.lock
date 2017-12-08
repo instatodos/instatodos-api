@@ -1,13 +1,8 @@
-GIT
-  remote: git://github.com/kddeisz/snip_snip.git
-  revision: 4acc262bbd6929c49efe9ba6c4c26622b4cc38d2
-  specs:
-    snip_snip (0.0.1)
-      rails (>= 5.0.0.beta)
-
 GEM
   remote: https://rubygems.org/
   specs:
+    action-cable-testing (0.1.2)
+      actioncable (~> 5.0)
     actioncable (5.1.2)
       actionpack (= 5.1.2)
       nio4r (~> 2.0)
@@ -74,18 +69,19 @@ GEM
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.0.5)
+    crass (1.0.3)
     database_cleaner (1.6.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.3)
     docile (1.1.5)
     equalizer (0.0.11)
-    erubi (1.6.1)
+    erubi (1.7.0)
     erubis (2.7.0)
-    factory_girl (4.8.0)
+    factory_bot (4.8.2)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.8.0)
-      factory_girl (~> 4.8.0)
+    factory_bot_rails (4.8.2)
+      factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
     faker (1.8.4)
       i18n (~> 0.5)
@@ -102,13 +98,15 @@ GEM
       activerecord (>= 4.0.0)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    i18n (0.8.6)
+    i18n (0.9.1)
+      concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     json (2.1.0)
     jsonapi-renderer (0.1.3)
     launchy (2.4.3)
       addressable (~> 2.3)
-    loofah (2.0.3)
+    loofah (2.1.1)
+      crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
@@ -124,12 +122,12 @@ GEM
     mina-puma (1.0.1)
       mina (~> 1.0.0)
       puma (>= 2.13)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.3)
     msgpack (1.1.0)
     nio4r (2.1.0)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     open4 (1.3.4)
     parallel (1.12.0)
     parser (2.4.0.0)
@@ -183,23 +181,23 @@ GEM
       codeclimate-engine-rb (~> 0.4.0)
       parser (>= 2.4.0.0, < 2.5)
       rainbow (~> 2.0)
-    rspec-core (3.6.0)
-      rspec-support (~> 3.6.0)
-    rspec-expectations (3.6.0)
+    rspec-core (3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-expectations (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.6.0)
-    rspec-mocks (3.6.0)
+      rspec-support (~> 3.7.0)
+    rspec-mocks (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.6.0)
-    rspec-rails (3.6.0)
+      rspec-support (~> 3.7.0)
+    rspec-rails (3.7.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec-core (~> 3.6.0)
-      rspec-expectations (~> 3.6.0)
-      rspec-mocks (~> 3.6.0)
-      rspec-support (~> 3.6.0)
-    rspec-support (3.6.0)
+      rspec-core (~> 3.7.0)
+      rspec-expectations (~> 3.7.0)
+      rspec-mocks (~> 3.7.0)
+      rspec-support (~> 3.7.0)
+    rspec-support (3.7.0)
     rubocop (0.49.1)
       parallel (~> 1.10)
       parser (>= 2.3.3.1, < 3.0)
@@ -242,7 +240,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (0.19.4)
     thread_safe (0.3.6)
-    tzinfo (1.2.3)
+    tzinfo (1.2.4)
       thread_safe (~> 0.1)
     unicode-display_width (1.3.0)
     uniform_notifier (1.10.0)
@@ -253,18 +251,19 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.2)
+    websocket-extensions (0.1.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  action-cable-testing
   active_model_serializers
   bootsnap
   brakeman
   bullet
   database_cleaner
-  factory_girl_rails
+  factory_bot_rails
   faker
   friendly_id
   mina
@@ -278,15 +277,17 @@ DEPENDENCIES
   rack-cors
   rails (= 5.1.2)
   redis (~> 3.0)
-  rspec-rails (~> 3.6.0)
+  rspec-rails (~> 3.7.0)
   rubocop
   rubycritic
   shoulda-context
   shoulda-matchers (~> 3.1.1)
   simplecov
-  snip_snip!
   spring
   spring-commands-rspec
 
+RUBY VERSION
+   ruby 2.4.1p111
+
 BUNDLED WITH
-   1.15.3
+   1.16.0
