@@ -1,4 +1,4 @@
-class  NameGenerator
+class NameGenerator
   include Singleton
 
   def initialize

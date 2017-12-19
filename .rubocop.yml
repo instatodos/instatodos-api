@@ -1,0 +1,19 @@
+require: rubocop-rspec
+inherit_from: .rubocop_todo.yml
+ 
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+    - lib/**/*.rake
+  Exclude:
+    - db/schema.rb
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+  
+Rails:
+  Enabled: true
+
+Documentation:
+  Enabled: false

@@ -1,8 +1,10 @@
 class TodoList < ApplicationRecord
   include FriendlyId
-  friendly_id :title
 
   has_many :todos
 
-  validates :title, format: { with: /\w+-\w+-\d{3}/, message: "not allowed" }
+  # TODO: Insufficient validation for title
+  validates :title, format: { with: /\w+-\w+-\d{3}/, message: 'not allowed' }
+
+  friendly_id :title
 end

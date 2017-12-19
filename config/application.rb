@@ -16,9 +16,9 @@ module InstaTodos
   class Application < Rails::Application
     config.api_only = true
 
-    config.generators do |g|
-      g.orm :active_record, primary_key_type: :uuid
-      g.controller_specs false
+    config.generators do |generator|
+      generator.orm :active_record, primary_key_type: :uuid
+      generator.controller_specs false
     end
   end
 end

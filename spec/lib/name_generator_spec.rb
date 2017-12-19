@@ -2,7 +2,7 @@ require "rails_helper"
 require "name_generator"
 
 describe NameGenerator do
-  let(:subject) { NameGenerator.instance }
+  let(:subject) { described_class.instance }
   let(:name) { subject.name }
 
   it "generates a name using adjective-noun-number" do

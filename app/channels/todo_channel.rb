@@ -10,8 +10,9 @@ class TodoChannel < ApplicationCable::Channel
   end
 
   def update(params)
-    todo = Todo.find(params['todo_params']['id'])
-    todo.assign_or_update params['todo_params']
+    todo_params = params['todo']
+    todo = Todo.find todo_params['id']
+    todo.assign_or_update todo_params
     response = { todo: serialize(todo), action: :update }
     ActionCable.server.broadcast current_todo_list, response
   end
