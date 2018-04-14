@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class TodoListsController < ApplicationController
   def show
-    @todo_list = TodoList.first
-    render json: @todo_list, include: [:todos]
+    render json: fetch_todo_list, include: [:todos]
   end
 
   def create
-    @todo_list = TodoList.create todo_list_params
+    todo_list = fetch_todo_list
 
-    if @todo_list.save
-      title = @todo_list.title
+    if todo_list.save
+      title = todo_list.title
+
       flash[:notice] = "Todo list: #{title} created!"
       redirect_to URI.parse("/#{title}").path
     else
@@ -18,6 +20,10 @@ class TodoListsController < ApplicationController
   end
 
   private
+
+  def fetch_todo_list
+    TodoList.first
+  end
 
   def todo_list_params
     params.require(:todo_list).permit(:title)

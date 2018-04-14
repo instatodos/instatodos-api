@@ -2,7 +2,6 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'shoulda/matchers'
-require 'database_cleaner'
 require 'simplecov'
 
 SimpleCov.start 'rails'
@@ -30,16 +29,6 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.backtrace_exclusion_patterns << %r{/gems/}
 
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
-  end
-
-  config.around do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
-  end
 end
 
 Shoulda::Matchers.configure do |config|

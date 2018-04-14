@@ -1,21 +1,20 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.5.1'
 
 gem 'active_model_serializers'
-gem 'bootsnap', require: false
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'friendly_id'
 gem 'pg'
 gem 'puma'
 gem 'rack-cors', require: 'rack/cors'
-gem 'rails', '5.1.2'
-gem 'redis', '~> 3.0'
+gem 'rails', '5.2.0'
+gem 'redis', '~> 4.0'
 
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'pry-nav'
   gem 'rspec-rails', '~> 3.7.0'
 
   # code analysis
@@ -39,8 +38,6 @@ group :development do
 end
 
 group :test do
-  gem 'action-cable-testing'
-  gem 'database_cleaner'
   gem 'shoulda-context'
   gem 'shoulda-matchers', '~> 3.1.1'
 end
